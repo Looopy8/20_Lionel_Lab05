@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovementScript : MonoBehaviour
+public class PlayerMovement2 : MonoBehaviour
 {
     public float speed;
     public Rigidbody playerrigidbody;
@@ -14,16 +14,16 @@ public class PlayerMovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         CoinText.text = "Coins Collected :" + Coin;
-        if(Coin == 4)
+        if (Coin == 4)
         {
-            SceneManager.LoadScene("GamePlay_Level2");
+            SceneManager.LoadScene("GameWin");
         }
     }
     private void FixedUpdate()
@@ -35,7 +35,7 @@ public class PlayerMovementScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "Coin")
         {
             Coin++;
             Destroy(other.gameObject);
@@ -46,3 +46,4 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 }
+
